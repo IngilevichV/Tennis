@@ -1,4 +1,6 @@
 lib/
 target/
 .idea/
+/src/main/frontend/build/
+/src/main/frontend/node_modules/
 *.iml

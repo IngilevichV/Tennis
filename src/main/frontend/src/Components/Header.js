@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -29,12 +30,18 @@ export default function Header() {
             
         <AppBar position="static" color="default">
             <Toolbar>
-                <img src={TennisLogo} width = {90} style = {{margin: "5px"}}/>  
+                <Link to="/">
+                    <img src={TennisLogo} width = {90} style = {{margin: "5px"}}/>
+                </Link>  
             <Typography className={classes.title}>
-                <Button size="large" style ={{color:"Grey", fontSize: "15px"}}>Players</Button>
+                <Link to="/players">
+                    <Button size="large" style ={{color:"Grey", fontSize: "15px"}}>Players</Button>
+                </Link>
                 <Button size="large" style ={{color:"Grey", fontSize: "15px"}}>Coaches</Button>
                 <Button size="large" style ={{color:"Grey", fontSize: "15px"}}>Courts</Button>
                 <Button size="large" style ={{color:"Grey", fontSize: "15px"}}>Tournaments</Button>
+                
+
             </Typography>
             <IconButton
                 aria-label="Account of current user"
