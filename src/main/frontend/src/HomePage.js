@@ -1,21 +1,18 @@
 import React, {Fragment} from 'react';
-import $ from 'jquery'
-import MatchCard from './MatchCard'
-import AddMatchDialog from './AddMatchDialog';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-
-const style = {
- margin: 15,
-};
+import $ from 'jquery';
+import Header from './Components/Header';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import {Jumbotron} from 'react-bootstrap';
 
 export default class HomePage extends React.Component {
   state={
-     username:'',
-     password:''
-     }
+    username:'',
+    password:'',
+    lat: 51.505,
+    lng: -0.09,
+    zoom: 13,
+  }
+
 
   componentDidMount() {
     $.getJSON( "/api/matches", ( data ) => {
@@ -24,32 +21,34 @@ export default class HomePage extends React.Component {
   }
 
   render = () => {
-    console.info(this.state)
+    const position = [this.state.lat, this.state.lng];
+
     return (
       <div>
-        <MuiThemeProvider>
-          <div>
-          <AppBar
-             title="Login"
-           />
-           <TextField
-             hintText="Enter your Username"
-             floatingLabelText="Username"
-             // onChange = {(event,newValue) => this.setState({username:newValue})}
-             />
-           <br/>
-             <TextField
-               type="password"
-               hintText="Enter your Password"
-               floatingLabelText="Password"
-               // onChange = {(event,newValue) => this.setState({password:newValue})}
-               />
-             <br/>
-             <RaisedButton label="Submit" primary={true} style={style}
-             // onClick={(event) => this.handleClick(event)}
-             />
-         </div>
-         </MuiThemeProvider>
+        <Header/>
+        
+        
+        <Jumbotron style={{margin: "0", height: "10%", padding: "5px"}}>
+          <div className="text-center">
+          <h1 >Let's play tennis</h1>
+          <p>Tennis Tennis Tennis</p>
+          {/* <SearchBar/> */}
+          </div>
+
+        </Jumbotron>
+        <div style={{width: "100%", height: "500px"}}>
+          <Map center={position} zoom={this.state.zoom} style={{width: "100%", height: "500px"}}>
+            <TileLayer
+              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+              <Popup>
+                Tennis court
+              </Popup>
+            </Marker>
+          </Map>
+        </div>
       </div>
     )
   }
