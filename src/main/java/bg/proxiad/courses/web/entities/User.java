@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,7 +20,8 @@ import java.util.*;
 @NoArgsConstructor
 @Entity
 @ValidUser
-public class User implements Serializable, UserDetails {
+//public class User implements Serializable, UserDetails {
+public class User implements Serializable {
     @Id
     @NotNull
     @Size(min = 3, message = "длина логина не менее 3 символов")
@@ -90,43 +91,43 @@ public class User implements Serializable, UserDetails {
         return login.hashCode();
     }
 
-    @Override
-    @JsonIgnore
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for (UserRole role: roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getRole().toString()));
-        }
-        return authorities;
-    }
-
-    @Override
-    @JsonIgnore
-    public String getUsername() {
-        return login;
-    }
-
-    @Override
-    @JsonIgnore
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    @JsonIgnore
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    @JsonIgnore
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    @JsonIgnore
-    public boolean isEnabled() {
-        return true;
-    }
+//    @Override
+//    @JsonIgnore
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+//        for (UserRole role: roles) {
+//            authorities.add(new SimpleGrantedAuthority(role.getRole().toString()));
+//        }
+//        return authorities;
+//    }
+//
+//    @Override
+//    @JsonIgnore
+//    public String getUsername() {
+//        return login;
+//    }
+//
+//    @Override
+//    @JsonIgnore
+//    public boolean isAccountNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    @JsonIgnore
+//    public boolean isAccountNonLocked() {
+//        return true;
+//    }
+//
+//    @Override
+//    @JsonIgnore
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    @JsonIgnore
+//    public boolean isEnabled() {
+//        return true;
+//    }
 }

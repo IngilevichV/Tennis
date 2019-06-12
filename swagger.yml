@@ -1,0 +1,43 @@
+swagger: "2.0"
+info:
+  description: "blablabla"
+  version: "1.0.0"
+  title: "Swagger Tennis"
+host: "localhost:8080"
+basePath: "/api"
+tags:
+  - name: "users"
+schemes:
+  - "http"
+paths:
+  /users:
+    get:
+      tags:
+        - "users"
+      summary: "Возвращает страницу отфильтрованного списка пользователей"
+      produces:
+        - "application/json"
+      parameters:
+        - name: role
+          in: query
+          type: string
+          required: false
+      responses:
+        200:
+          description: "успешная операция"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/User"
+        400:
+          description: "фильтр некорректен"
+definitions:
+  User:
+    type: object
+    properties:
+      login:
+        type: string
+        example: "Варвара"
+      city:
+        type: string
+        example: "СПб"

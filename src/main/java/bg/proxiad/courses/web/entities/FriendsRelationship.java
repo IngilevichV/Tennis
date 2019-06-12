@@ -9,10 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Data
 @Entity
-public class FriendsRelationship {
+public class FriendsRelationship implements Serializable {
     @Id
     @GeneratedValue
     @JsonIgnore
