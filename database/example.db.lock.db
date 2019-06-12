@@ -1,0 +1,6 @@
+#FileLock
+#Thu May 30 22:17:34 MSK 2019
+server=192.168.56.1\:58048
+hostName=HOME-PC
+method=file
+id=16b0a2d016c12dcbfd4d8bd1062b265e1d7f756593f
