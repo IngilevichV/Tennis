@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import $ from 'jquery';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import {Jumbotron} from 'react-bootstrap';
 
@@ -26,13 +27,12 @@ export default class HomePage extends React.Component {
     return (
       <div>
         <Header/>
-        
-        
+
         <Jumbotron style={{margin: "0", height: "10%", padding: "5px"}}>
           <div className="text-center">
-          <h1 >Let's play tennis</h1>
-          <p>Tennis Tennis Tennis</p>
-          {/* <SearchBar/> */}
+            <h1 >Let's play tennis</h1>
+            <p>Tennis Tennis Tennis</p>
+            {/* <SearchBar/> */}
           </div>
 
         </Jumbotron>
@@ -49,6 +49,7 @@ export default class HomePage extends React.Component {
             </Marker>
           </Map>
         </div>
+      <Footer/>        
       </div>
     )
   }
