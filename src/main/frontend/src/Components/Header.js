@@ -43,11 +43,13 @@ export default function Header() {
                 
 
             </Typography>
+
             <IconButton
                 aria-label="Account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 color="inherit"
+                href="/login"
                 >
                 <AccountCircle style={{width: 30, height: 30, fill: "grey"}}/>
                 </IconButton>
