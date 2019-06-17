@@ -10,9 +10,9 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import TennisLogo from '../../public/tennis_logo.svg';
 
 const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-    },
+    // root: {
+    //   flexGrow: 1,
+    // },
     menuButton: {
       marginRight: theme.spacing(2),
     },

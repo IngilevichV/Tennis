@@ -5,8 +5,7 @@ export default function Footer() {
 
     return (
         <div style={{
-            height: "50px",
-            // backgroudColor:"red",
+            minHeight: "10%",
             width: "100%",
             position: "fixed",
             bottom: 0
